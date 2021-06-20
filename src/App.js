@@ -22,6 +22,6 @@ function App() {
   );
 }
 
-//checking js
+//checking js 1
 
 export default App;
