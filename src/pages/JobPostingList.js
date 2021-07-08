@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Table, Menu, Icon, Label } from 'semantic-ui-react'
 import JobPostingService from '../services/jobPostingService'
+import { Link } from 'react-router-dom'
 
 export default function JobPostingList() {
 
@@ -10,7 +11,7 @@ export default function JobPostingList() {
         let jobPostingService = new JobPostingService()
         jobPostingService.getJobPostings()
             .then(result => setjobPostings(result.data.data))
-    })
+    }, [])
 
 
     return (
@@ -37,14 +38,15 @@ export default function JobPostingList() {
                             <Table.Row key={jobPosting.id}>
                                 <Table.Cell>{jobPosting.jobPosition.title}</Table.Cell>
                                 <Table.Cell>{jobPosting.jobRequirements}</Table.Cell>
-                                <Table.Cell>{jobPosting.employer.companyName}</Table.Cell>
+                                <Table.Cell> <Link to={`/employers/${jobPosting.employer.id}`}>{jobPosting.employer.companyName}</Link></Table.Cell>
                                 <Table.Cell>{jobPosting.city.cityName}</Table.Cell>
                                 <Table.Cell>{jobPosting.salaryMax}</Table.Cell>
                                 <Table.Cell>{jobPosting.numberOfOpenings}</Table.Cell>
                                 <Table.Cell>{jobPosting.applicationDeadline}</Table.Cell>
                             </Table.Row>
 
-                        ))}
+                        ))
+                    }
 
                 </Table.Body>
 

@@ -12,7 +12,7 @@ export default function EmployerList() {
         employerService.getEmployers()
             .then(result => setemployers(result.data.data))
 
-    })
+    },[])
 
 
 
