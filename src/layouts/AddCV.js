@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
 
-export default function AddCV() {
+export default function AddCV(props) {
     return (
         <div>
-            <Button>
+            <Button onClick={props.addCV}>
                 Add Your Resume
             </Button>
         </div>

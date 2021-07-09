@@ -26,13 +26,7 @@ export default function Navi() {
         setisAuthenticated(true)
     }
 
-    function handleAddCV() {
 
-    }
-
-    function handlePostJob() {
-
-    }
 
     return (
         <div>
@@ -46,10 +40,7 @@ export default function Navi() {
 
                     {isAuthenticated ?
                         < PostJobAndAddCV />
-
-
                         : null
-
                     }
                 </Menu.Menu>
 

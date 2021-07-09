@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { Table, Menu, Icon, Label } from 'semantic-ui-react'
 import JobPostingService from '../services/jobPostingService'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export default function JobPostingList() {
 
     const [jobPostings, setjobPostings] = useState([])
+
+  
 
     useEffect(() => {
         let jobPostingService = new JobPostingService()
