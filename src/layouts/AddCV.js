@@ -5,7 +5,7 @@ export default function AddCV(props) {
     return (
         <div>
             <Button onClick={props.addCV}>
-                Add Your Resume
+                Add Resume
             </Button>
         </div>
     )
