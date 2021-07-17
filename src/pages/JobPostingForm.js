@@ -1,7 +1,9 @@
 import React from 'react'
 import { useFormik } from 'formik'
-import { Button, Checkbox, Dropdown, DropdownMenu, Grid, GridColumn } from 'semantic-ui-react'
-import { DatePicker } from 'react-formik-ui';
+import { Button, Checkbox, Dropdown, Grid, GridColumn } from 'semantic-ui-react'
+
+import { useState } from 'react'
+import JobPostingService from '../services/jobPostingService'
 
 
 
@@ -26,6 +28,10 @@ export default function JobPostingFrom() {
 
     ]
 
+    const [jobPosting, setjobPosting] = useState({})
+    let jobPostingService = new JobPostingService();
+
+
 
     const formik = useFormik({
 
@@ -37,8 +43,24 @@ export default function JobPostingFrom() {
             deadline: '',
             salary: '',
             workCondition: '',
-            partTime:''
+            partTime: ''
 
+        },
+
+        onSubmit: values => {
+            let jobPosting =
+
+            {
+                position: values.position,
+                company: values.company,
+                city: values.city,
+                requirements: values.requirements,
+                deadline: values.deadline,
+                salary: values.salary,
+            }
+
+
+            jobPostingService.addJobPosting(jobPosting).then((result) => console.log(result.data.data))
         }
 
 
@@ -75,6 +97,9 @@ export default function JobPostingFrom() {
 
                         <label>City</label>
 
+
+                        
+
                         <input
                             id="city"
                             name="city"
@@ -105,7 +130,7 @@ export default function JobPostingFrom() {
                         <label>Part Time</label>
 
                         <Checkbox className='center'
-                       
+
 
                             id="partTime"
                             name="partTime"

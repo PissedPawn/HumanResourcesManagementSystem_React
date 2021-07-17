@@ -9,6 +9,10 @@ import Applicants from './Applicants'
 import EmployerDetail from '../pages/EmployerDetail'
 import UserDetail from '../pages/UserDetail'
 import JobPostingForm from '../pages/JobPostingForm'
+import CityList from '../pages/CityList'
+import AddCity from '../pages/AddCity'
+import EmployerRegistration from '../pages/EmployerRegistration'
+import EmployerList from '../pages/EmployerList'
 
 
 export default function Dashboard() {
@@ -36,9 +40,13 @@ export default function Dashboard() {
                         <Container className="main">
                             <Route exact path="/" component={JobPostingList} />
                             <Route exact path="/jobListings" component={JobPostingList} />
+                            <Route exact path="/cities" component={CityList} />
                             <Route exact path="/users/:id" component={UserDetail} />
                             <Route exact path="/employers/:id" component={EmployerDetail} />
+                            <Route exact path="/employers" component={EmployerList} />
+                            <Route exact path="/employerRegistration" component={EmployerRegistration} />
                             <Route exact path="/addJobPosting/" component={JobPostingForm} />
+                            <Route exact path="/addCity/" component={AddCity} />
                         </Container>
                     </Grid.Column>
 

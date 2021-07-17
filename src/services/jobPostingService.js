@@ -11,7 +11,7 @@ export default class JobPostingService {
     }
 
 
-    addJobPosting() {
-        return axios.post("http://localhost:8080/api/jobPostings/add")
+    addJobPosting(jobPosting = {}) {
+        return axios.post("http://localhost:8080/api/jobPostings/add", jobPosting)
     }
 }
