@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import { Button,  Grid, GridColumn } from 'semantic-ui-react'
-import { useState} from 'react'
+
 import CityService from '../services/cityService'
 
 

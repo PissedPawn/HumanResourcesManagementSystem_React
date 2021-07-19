@@ -19,7 +19,7 @@ export default function EmployerRegistration() {
 
 
     const [cities, setcities] = useState([])
-    const [employers, setemployers] = useState([])
+   
 
 
     useEffect(() => {
@@ -27,7 +27,7 @@ export default function EmployerRegistration() {
         cityService.getCities()
             .then(result => setcities(result.data.data))
 
-        employerService.getEmployers().then(result => setemployers(result.data.data))
+       
 
     }, [])
 
@@ -55,17 +55,16 @@ export default function EmployerRegistration() {
     const formik = useFormik({
 
         initialValues: {
-            id: '',
             companyName: '',
             city: {
-                id: '',
-                cityName: ''
+                id: ''
             },
             email: '',
             phoneNumber: '',
             website: '',
             password: '',
             passwordRepeat: ''
+
 
         },
 
@@ -74,17 +73,13 @@ export default function EmployerRegistration() {
             {
                 city: {
                     id: values.city.id,
-                    cityName: ''
                 },
-
-                id: employers.length,
                 companyName: values.companyName,
-
                 email: values.email,
                 phoneNumber: values.phoneNumber,
                 website: values.website,
-                password: '',
-                passwordRepeat: ''
+                password: 'aaaaaaaaa456',
+                passwordRepeat: 'aaaaaaaaa456'
 
             }
 

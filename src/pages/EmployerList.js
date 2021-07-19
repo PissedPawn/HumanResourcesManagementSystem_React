@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Table, Menu, Icon } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 import EmployerService from '../services/employerService'
+import { Link } from 'react-router-dom'
 
 export default function EmployerList() {
 
@@ -12,7 +13,7 @@ export default function EmployerList() {
         employerService.getEmployers()
             .then(result => setemployers(result.data.data))
 
-    },[])
+    }, [])
 
 
 
@@ -31,8 +32,9 @@ export default function EmployerList() {
                 <Table.Body>
                     {
                         employers.map(employer => (
-                            <Table.Row>
-                                <Table.Cell>{employer.companyName}</Table.Cell>
+                            <Table.Row
+                                key={employer.id}>
+                                <Table.Cell><Link to={`/employers/${employer.id}`}>{employer.companyName}</Link></Table.Cell>
                                 <Table.Cell>{employer.website}</Table.Cell>
                                 <Table.Cell>{employer.email}</Table.Cell>
                                 <Table.Cell>{employer.phoneNumber}</Table.Cell>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Table, Menu, Icon } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 import CityService from '../services/cityService'
 
 export default function CityList() {

@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { Button, Dropdown, Menu } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 import SignedOut from './SignedOut'
 import SignedIn from './SignedIn'
 import { useHistory } from 'react-router-dom'
-import PostJob from './PostJob'
-import AddCV from './AddCV'
+
 import PostJobAndAddCV from './PostJobAndAddCV'
 
 export default function Navi() {
