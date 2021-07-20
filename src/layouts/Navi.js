@@ -21,6 +21,11 @@ export default function Navi() {
         history.push("/")
     }
 
+    
+    function goSeacrhEmployersPage() {
+        history.push("/searchEmployers/")
+    }
+
     function handleSignIn() {
         setisAuthenticated(true)
     }
@@ -33,6 +38,12 @@ export default function Navi() {
                 <Menu.Item
                     onClick={goMainMenu}
                     name='You Are HIRED !'
+                />
+
+
+                <Menu.Item
+                    onClick={goSeacrhEmployersPage}
+                    name='Search Employers !'
                 />
 
                 <Menu.Menu position='left' >
