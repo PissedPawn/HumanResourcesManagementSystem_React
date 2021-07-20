@@ -19,7 +19,7 @@ export default function EmployerRegistration() {
 
 
     const [cities, setcities] = useState([])
-   
+
 
 
     useEffect(() => {
@@ -27,7 +27,7 @@ export default function EmployerRegistration() {
         cityService.getCities()
             .then(result => setcities(result.data.data))
 
-       
+
 
     }, [])
 

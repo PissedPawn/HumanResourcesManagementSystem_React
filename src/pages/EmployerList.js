@@ -26,6 +26,7 @@ export default function EmployerList() {
                         <Table.HeaderCell>Website</Table.HeaderCell>
                         <Table.HeaderCell>Email</Table.HeaderCell>
                         <Table.HeaderCell>Phone Number</Table.HeaderCell>
+                        <Table.HeaderCell>City</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
 
@@ -38,6 +39,7 @@ export default function EmployerList() {
                                 <Table.Cell>{employer.website}</Table.Cell>
                                 <Table.Cell>{employer.email}</Table.Cell>
                                 <Table.Cell>{employer.phoneNumber}</Table.Cell>
+                                <Table.Cell>{employer.city.cityName}</Table.Cell>
                             </Table.Row>
                         ))
                     }

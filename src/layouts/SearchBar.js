@@ -12,7 +12,7 @@ export default function SearchBar({ placeholer, data }) {
         const newFilter = data.filter(value => {
             return value.companyName.toLowerCase().includes(keyword.toLowerCase())
         })
-        if (keyword == "")
+        if (keyword === "")
             setfilteredData([])
         else
             setfilteredData(newFilter)
