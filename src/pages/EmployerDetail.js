@@ -8,35 +8,42 @@ import EmployerService from '../services/employerService'
 export default function EmployerDetail() {
 
     const { id } = useParams()
-    const [employer, setemployer] = useState({})
+    const [employer, setemployer] = useState({city: {cityName: ''}})
 
-     useEffect(() => {
+    useEffect(() => {
         let employerService = new EmployerService()
+
         employerService.getById(id)
-            .then(result => setemployer(result.data.data))
+            .then(result => setemployer((result.data.data)))
+
     }, [])
 
 
+
+    console.log(employer)
+
+
     return (
-
-
         <div >
-                <Card.Group>
+            <Card.Group>
 
-                    <Card fluid>
-                        <Card.Content>
+                <Card fluid>
+                    <Card.Content>
+                        {console.log("card content render")}
 
-                            <Card.Header>{employer.companyName}</Card.Header>
+                        <Card.Header>{employer.companyName}</Card.Header>
 
-                            <Card.Description> Website: {employer.website}</Card.Description>
-                            <Card.Description> Email: {employer.email}</Card.Description>
-                            <Card.Description> Phone Number: {employer.phoneNumber}</Card.Description>
-                            <Card.Description> City: {employer.city.cityName}</Card.Description>
-                        </Card.Content>
+                        <Card.Description> Website: a {employer.website}</Card.Description>
+                        <Card.Description> Email: {employer.email}</Card.Description>
+                        <Card.Description> Phone Number: {employer.phoneNumber}</Card.Description>
+                        <Card.Description> City: { employer.city.cityName}</Card.Description>
 
-                    </Card>
 
-                </Card.Group>
+                    </Card.Content>
+
+                </Card>
+
+            </Card.Group>
         </div >
     )
 }

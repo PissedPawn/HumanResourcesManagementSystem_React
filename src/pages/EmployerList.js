@@ -13,14 +13,21 @@ export default function EmployerList() {
         employerService.getEmployers()
             .then(result => setemployers(result.data.data))
 
+
+            employers.map(employer => {
+                console.log("inside effect "+ employer.city.cityName)
+            })
     }, [])
 
-
+    employers.map(employer => {
+        console.log("outside effect "+employer.city.cityName)
+    })
 
     return (
         <div>
             <Table celled>
                 <Table.Header>
+                    {console.log("inside render ")}
                     <Table.Row>
                         <Table.HeaderCell>Company</Table.HeaderCell>
                         <Table.HeaderCell>Website</Table.HeaderCell>
@@ -40,6 +47,7 @@ export default function EmployerList() {
                                 <Table.Cell>{employer.email}</Table.Cell>
                                 <Table.Cell>{employer.phoneNumber}</Table.Cell>
                                 <Table.Cell>{employer.city.cityName}</Table.Cell>
+                                {console.log("inside render  " + employers[1].city.cityName)}
                             </Table.Row>
                         ))
                     }
