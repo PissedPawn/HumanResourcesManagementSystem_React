@@ -26,12 +26,24 @@ export default function Navi() {
         history.push("/searchEmployers/")
     }
 
+    function goJobSeekersList() {
+        history.push("/jobSeekers")
+    }
+
     function handleSignIn() {
         setisAuthenticated(true)
     }
 
     function goEmployerRegistrationForm() {
         history.push("/employerRegistration/")
+    }
+
+    function goEmployersList() {
+        history.push("/employers/")
+    }
+
+    function goRegistrationPage() {
+        history.push("/Registration/")
     }
 
 
@@ -51,11 +63,32 @@ export default function Navi() {
                 />
 
                 <Menu.Item
-                    onClick={goEmployerRegistrationForm}
-                    name='Employer Registration'
+                    onClick={goJobSeekersList}
+                    name='Job Seekers List'
+                />
+                <Menu.Item
+                    onClick={goEmployersList}
+                    name='Companies'
                 />
 
-                <Menu.Menu position='left' >
+
+                <Menu.Item position="right"
+                    onClick={goRegistrationPage}
+                    name='Who are you'
+                />
+
+
+
+
+
+
+
+                {/* <Menu.Item
+                    onClick={goEmployerRegistrationForm}
+                    name='Employer Registration'
+                /> */}
+
+                {/* <Menu.Menu position='left' >
 
                     {isAuthenticated ?
                         < PostJobAndAddCV />
@@ -70,12 +103,7 @@ export default function Navi() {
                         <SignedIn signOut={handleSignOut} /> :
                         <SignedOut signIn={handleSignIn} />}
 
-                </Menu.Menu>
-
-
-
-
-
+                </Menu.Menu> */}
             </Menu>
         </div>
     )

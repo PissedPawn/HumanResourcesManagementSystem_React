@@ -2,8 +2,9 @@ import React from 'react'
 import { useFormik } from 'formik'
 import { Button, Checkbox, Dropdown, Grid, GridColumn } from 'semantic-ui-react'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import JobPostingService from '../services/jobPostingService'
+import CityService from '../services/cityService'
 
 
 
@@ -28,6 +29,38 @@ export default function JobPostingFrom() {
 
     ]
 
+    const [cities, setcities] = useState([])
+    
+    useEffect(() => {
+        let cityService = new CityService()
+        cityService.getCities()
+            .then(result => setcities(result.data.data))
+
+
+
+    }, [])
+
+    const cityOptions = cities.map((city, index) => (
+        {
+            key: index,
+            text: city.cityName,
+            value: city.id,
+
+        }
+    ))
+
+
+
+    const getCity = (e, { value }) => {
+        formik.values.city.id = value;
+
+    }
+
+    const getWorkCondition = (e, { value }) => {
+        formik.values.workCondition = value;
+
+    }
+
     const [jobPosting, setjobPosting] = useState({})
     let jobPostingService = new JobPostingService();
 
@@ -36,9 +69,20 @@ export default function JobPostingFrom() {
     const formik = useFormik({
 
         initialValues: {
-            position: '',
-            company: '',
-            city: '',
+
+            jobPosition:
+            {
+                title: ''
+            },
+
+            employer:
+            {
+                companyName: '',
+            },
+            city:
+            {
+                cityId: ''
+            },
             requirements: '',
             deadline: '',
             salary: '',
@@ -49,14 +93,26 @@ export default function JobPostingFrom() {
 
         onSubmit: values => {
             let jobPosting =
-
             {
-                position: values.position,
-                company: values.company,
-                city: values.city,
-                requirements: values.requirements,
-                deadline: values.deadline,
-                salary: values.salary,
+
+                jobPosition:
+                {
+                    title: ''
+                },
+
+                employer:
+                {
+                    companyName: '',
+                },
+                city:
+                {
+                    cityId: ''
+                },
+                requirements: '',
+                deadline: '',
+                salary: '',
+                workCondition: '',
+                partTime: ''
             }
 
 
@@ -77,12 +133,12 @@ export default function JobPostingFrom() {
                         <label>Position</label>
 
                         <input
-                            id="position"
-                            name="position"
+                            id="title"
+                            name="title"
 
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            value={formik.values.position} />
+                            value={formik.values.title} />
                         {/* {formik.touched.email && formik.errors.email ? <div className='error'>{formik.errors.email}</div> : null} */}
 
                         <label>Company</label>
@@ -97,17 +153,19 @@ export default function JobPostingFrom() {
 
                         <label>City</label>
 
+                        <Dropdown className='formDropdown'
 
-                        
-
-                        <input
                             id="city"
-                            name="city"
+                            name="id"
+                            placeholder='Select City'
 
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.city} />
+                            selection
+                            options={cityOptions}
+                            onChange={getCity}
 
+
+
+                        />
 
 
                         <label>Work Condition</label>
@@ -116,14 +174,14 @@ export default function JobPostingFrom() {
 
                             id="workCondition"
                             name="workCondition"
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.workCondition}
-
-                            placeholder='Select Condition'
+                            placeholder='Remote or Office'
 
                             selection
                             options={workConditionOptions}
+                            onChange={getWorkCondition}
+
+
+
                         />
 
 
@@ -138,7 +196,6 @@ export default function JobPostingFrom() {
                             onBlur={formik.handleBlur}
                             value={formik.values.partTime}
 
-                            placeholder='Select Condition'
                         />
 
 

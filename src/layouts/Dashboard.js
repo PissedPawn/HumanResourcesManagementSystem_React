@@ -13,6 +13,8 @@ import AddCity from '../pages/AddCity'
 import EmployerRegistration from '../pages/EmployerRegistration'
 import EmployerList from '../pages/EmployerList'
 import SearchEmployers from '../pages/SearchEmployers'
+import Registration from '../pages/Registration'
+import WhoAreYouLeftMenu from './WhoAreYouLeftMenu'
 
 
 export default function Dashboard() {
@@ -22,20 +24,21 @@ export default function Dashboard() {
             <Grid>
 
                 <Grid.Row>
-                    <Grid.Column width={4}>
+                    {/* <Grid.Column width={4}>
 
                         <Container className="main">
                             <Route exact path="/" component={JobPostings} />
                             <Route exact path="/jobPostings" component={JobPostings} />
                             <Route exact path="/employers/:id" component={Employers} />
                             <Route exact path="/employers" component={Employers} />
+                            <Route exact path="/Registration" component={WhoAreYouLeftMenu} />
                         </Container>
 
 
 
-                    </Grid.Column>
+                    </Grid.Column> */}
 
-                    <Grid.Column width={12}>
+                    <Grid.Column>
 
 
                         <Container className="main">
@@ -49,6 +52,7 @@ export default function Dashboard() {
                             <Route exact path="/addJobPosting/" component={JobPostingForm} />
                             <Route exact path="/addCity/" component={AddCity} />
                             <Route exact path="/searchEmployers/" component={SearchEmployers} />
+                            <Route exact path="/Registration/" component={Registration} />
                         </Container>
                     </Grid.Column>
 

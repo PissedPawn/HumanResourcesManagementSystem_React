@@ -14,14 +14,10 @@ export default function EmployerList() {
             .then(result => setemployers(result.data.data))
 
 
-            employers.map(employer => {
-                console.log("inside effect "+ employer.city.cityName)
-            })
+          
     }, [])
 
-    employers.map(employer => {
-        console.log("outside effect "+employer.city.cityName)
-    })
+   
 
     return (
         <div>
@@ -47,7 +43,7 @@ export default function EmployerList() {
                                 <Table.Cell>{employer.email}</Table.Cell>
                                 <Table.Cell>{employer.phoneNumber}</Table.Cell>
                                 <Table.Cell>{employer.city.cityName}</Table.Cell>
-                                {console.log("inside render  " + employers[1].city.cityName)}
+                               
                             </Table.Row>
                         ))
                     }

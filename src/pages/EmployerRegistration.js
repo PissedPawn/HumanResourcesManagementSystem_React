@@ -164,7 +164,7 @@ export default function EmployerRegistration() {
 
 
 
-                        <Button type="submit" className="button">Add</Button>
+                        <Button type="submit" className="button">Register</Button>
 
                     </form>
                 </GridColumn>
