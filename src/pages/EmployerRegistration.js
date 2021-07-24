@@ -16,6 +16,8 @@ export default function EmployerRegistration() {
 
     let employerService = new EmployerService()
 
+    const employerErrorDiv = document.getElementById("employerRegisterError")
+
 
 
     const [cities, setcities] = useState([])
@@ -38,7 +40,6 @@ export default function EmployerRegistration() {
             key: index,
             text: city.cityName,
             value: city.id,
-
         }
     ))
 
@@ -78,15 +79,12 @@ export default function EmployerRegistration() {
                 email: values.email,
                 phoneNumber: values.phoneNumber,
                 website: values.website,
-                password: 'aaaaaaaaa456',
-                passwordRepeat: 'aaaaaaaaa456'
+                password: values.password,
+                passwordRepeat: values.passwordRepeat
 
             }
 
-            console.log(employer)
-
-
-            employerService.addEmployer(employer).then(result => console.log(result))
+            employerService.addEmployer(employer).then(result => employerErrorDiv.innerHTML = result.data.message)
         }
 
 
@@ -144,6 +142,28 @@ export default function EmployerRegistration() {
                             value={formik.values.phoneNumber} />
 
 
+                        <label>Password</label>
+
+                        <input
+                            id="password"
+                            name="password"
+
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.password} />
+
+
+                        <label>Password Repeat</label>
+
+                        <input
+                            id="passwordRepeat"
+                            name="passwordRepeat"
+
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.passwordRepeat} />
+
+
                         <label>City</label>
 
                         <Dropdown className='formDropdown'
@@ -155,9 +175,6 @@ export default function EmployerRegistration() {
                             selection
                             options={cityOptions}
                             onChange={getCity}
-
-
-
                         />
 
 
@@ -165,6 +182,7 @@ export default function EmployerRegistration() {
 
 
                         <Button type="submit" className="button">Register</Button>
+                        <div id="employerRegisterError"></div>
 
                     </form>
                 </GridColumn>

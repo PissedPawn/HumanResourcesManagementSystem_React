@@ -14,8 +14,9 @@ import EmployerRegistration from '../pages/EmployerRegistration'
 import EmployerList from '../pages/EmployerList'
 import SearchEmployers from '../pages/SearchEmployers'
 import Registration from '../pages/Registration'
-import WhoAreYouLeftMenu from './WhoAreYouLeftMenu'
 import EmployerLogin from '../pages/EmployerLogin'
+import ApplicantList from '../pages/ApplicantList'
+import ApplicantRegistration from '../pages/ApplicantRegistration'
 
 
 export default function Dashboard() {
@@ -54,6 +55,8 @@ export default function Dashboard() {
                             <Route exact path="/addCity/" component={AddCity} />
                             <Route exact path="/searchEmployers/" component={SearchEmployers} />
                             <Route exact path="/Registration/" component={Registration} />
+                            <Route exact path="/applicants/" component={ApplicantList} />
+                            <Route exact path="/applicantRegistration/" component={ApplicantRegistration} />
                         </Container>
                     </Grid.Column>
 

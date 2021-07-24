@@ -26,6 +26,10 @@ export default function Registration() {
         history.push("/employerRegistration/")
     }
 
+    function goApplicantRegistrationForm() {
+        history.push("/applicantRegistration/")
+    }
+
     function goEmployerLoginPage() {
         history.push("/employerLogIn/")
     }
@@ -79,7 +83,7 @@ export default function Registration() {
                                             </Button>
 
                                             <Button basic color='green'
-                                            onClick={goEmployerLoginPage}>
+                                                onClick={goEmployerLoginPage}>
                                                 Log In
                                             </Button>
                                         </div>
@@ -92,7 +96,7 @@ export default function Registration() {
                     :
                     <Segment>
                         <div>
-                            <Card.Group fluid>
+                            <Card.Group>
                                 <Card fluid>
                                     <Card.Content>
 
@@ -104,7 +108,9 @@ export default function Registration() {
                                     </Card.Content>
                                     <Card.Content extra>
                                         <div className='ui two buttons'>
-                                            <Button basic color='red'>
+                                            <Button basic color='red'
+                                                onClick={goApplicantRegistrationForm}>
+
                                                 Register
                                             </Button>
 

@@ -4,7 +4,6 @@ import { useFormik } from 'formik'
 import { Button, Grid, GridColumn } from 'semantic-ui-react'
 import EmployerService from '../services/employerService'
 import * as Yup from 'yup'
-import { validate } from '@babel/types'
 
 
 
@@ -36,7 +35,7 @@ export default function EmployerLogin() {
     }
 
     const emails = employers.map(e => e.email)
-    let errorDiv = document.getElementById("errorContainer")
+    let errorDiv = document.getElementById("employerLoginError")
 
     const valid = employer => {
         if (!emails.includes(employer.email)) {
@@ -135,7 +134,7 @@ export default function EmployerLogin() {
 
 
                         <Button type="submit" className="button">Log In</Button>
-                        <div id="errorContainer"></div>
+                        <div id="employerLoginError"></div>
                     </form>
 
 

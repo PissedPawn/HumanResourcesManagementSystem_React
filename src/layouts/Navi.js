@@ -8,7 +8,7 @@ import PostJobAndAddCV from './PostJobAndAddCV'
 
 export default function Navi() {
 
-    const [isAuthenticated, setisAuthenticated] = useState(true)
+    const [isAuthenticated, setisAuthenticated] = useState(false)
 
     const history = useHistory()
 
@@ -19,6 +19,7 @@ export default function Navi() {
 
     function goMainMenu() {
         history.push("/")
+        setisAuthenticated(false)
     }
 
 
@@ -27,7 +28,7 @@ export default function Navi() {
     }
 
     function goJobSeekersList() {
-        history.push("/jobSeekers")
+        history.push("/applicants/")
     }
 
     function handleSignIn() {
@@ -44,6 +45,7 @@ export default function Navi() {
 
     function goRegistrationPage() {
         history.push("/Registration/")
+        setisAuthenticated(true)
     }
 
     function goEmployerLoginPage() {
@@ -68,18 +70,20 @@ export default function Navi() {
 
                 <Menu.Item
                     onClick={goJobSeekersList}
-                    name='Job Seekers List'
+                    name='Applicants'
                 />
                 <Menu.Item
                     onClick={goEmployersList}
                     name='Companies'
                 />
 
+                {isAuthenticated ? null :
+                    <Menu.Item position="right"
+                        onClick={goRegistrationPage}
+                        name='Who are you'
+                    />
+                }
 
-                <Menu.Item position="right"
-                    onClick={goRegistrationPage}
-                    name='Who are you'
-                />
 
 
 
