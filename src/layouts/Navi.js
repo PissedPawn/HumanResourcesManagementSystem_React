@@ -46,6 +46,10 @@ export default function Navi() {
         history.push("/Registration/")
     }
 
+    function goEmployerLoginPage() {
+        history.push("/employerLogIn/")
+    }
+
 
 
     return (

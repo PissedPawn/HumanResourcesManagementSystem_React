@@ -26,6 +26,10 @@ export default function Registration() {
         history.push("/employerRegistration/")
     }
 
+    function goEmployerLoginPage() {
+        history.push("/employerLogIn/")
+    }
+
 
 
 
@@ -74,7 +78,8 @@ export default function Registration() {
                                                 Register
                                             </Button>
 
-                                            <Button basic color='green'>
+                                            <Button basic color='green'
+                                            onClick={goEmployerLoginPage}>
                                                 Log In
                                             </Button>
                                         </div>

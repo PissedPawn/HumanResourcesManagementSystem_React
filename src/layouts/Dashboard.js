@@ -15,6 +15,7 @@ import EmployerList from '../pages/EmployerList'
 import SearchEmployers from '../pages/SearchEmployers'
 import Registration from '../pages/Registration'
 import WhoAreYouLeftMenu from './WhoAreYouLeftMenu'
+import EmployerLogin from '../pages/EmployerLogin'
 
 
 export default function Dashboard() {
@@ -49,6 +50,7 @@ export default function Dashboard() {
                             <Route exact path="/employers/:id" component={EmployerDetail} />
                             <Route exact path="/employers" component={EmployerList} />
                             <Route exact path="/employerRegistration" component={EmployerRegistration} />
+                            <Route exact path="/employerLogIn" component={EmployerLogin} />
                             <Route exact path="/addJobPosting/" component={JobPostingForm} />
                             <Route exact path="/addCity/" component={AddCity} />
                             <Route exact path="/searchEmployers/" component={SearchEmployers} />
