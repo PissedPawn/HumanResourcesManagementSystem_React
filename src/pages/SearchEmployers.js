@@ -2,6 +2,7 @@ import React from 'react'
 import SearchBar from '../layouts/SearchBar'
 import { useState, useEffect } from 'react'
 import EmployerService from '../services/employerService'
+import BookData from "./Data.json"
 
 export default function SearchEmployers() {
 
@@ -13,11 +14,12 @@ export default function SearchEmployers() {
         let employerService = new EmployerService()
         employerService.getEmployers()
             .then(result => setemployers(result.data.data))
-
     }, [])
+
+
     return (
         <div>
-            <SearchBar placeholer="Enter company name.." data={employers} />
+            <SearchBar placeholder="Enter company name.." data={employers} />
         </div>
     )
 }

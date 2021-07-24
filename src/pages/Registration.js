@@ -60,7 +60,7 @@ export default function Registration() {
                 {isEmployer ?
                     <Segment>
                         <div>
-                            <Card.Group fluid>
+                            <Card.Group>
                                 <Card fluid>
                                     <Card.Content>
 

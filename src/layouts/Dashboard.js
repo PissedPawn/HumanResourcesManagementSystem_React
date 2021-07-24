@@ -25,7 +25,7 @@ export default function Dashboard() {
             <Grid>
 
                 <Grid.Row>
-                    {/* <Grid.Column width={4}>
+                     {/* <Grid.Column width={4}>
 
                         <Container className="main">
                             <Route exact path="/" component={JobPostings} />
@@ -37,10 +37,9 @@ export default function Dashboard() {
 
 
 
-                    </Grid.Column> */}
+                    </Grid.Column>  */}
 
                     <Grid.Column>
-
 
                         <Container className="main">
                             <Route exact path="/" component={JobPostingList} />
