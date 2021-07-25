@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-
 }
 
 .ui.main.container {
@@ -15,7 +14,6 @@ body {
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #4c0d25, #270f3e)!important;
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
 }
 
 .segment.ui.inverted.segment, .segment.ui.primary.inverted.segment {
@@ -168,14 +166,16 @@ input:focus {
 
 .searchIcon svg {
   font-size: 35px;
+  color:rgb(18, 41, 95);
 }
 
 .search {
   width: 900px;
+  margin: auto;
 }
 
 .search input {
-  background: linear-gradient(to right, #c79c9c, #5548b8);
+  background: linear-gradient(to right, #ab4a4a, #3b2bba);
   border: 0;
   border-radius: 2px;
   border-top-right-radius: 0px;
@@ -189,7 +189,7 @@ input:focus {
 .searchIcon {
   height: 30px;
   width: 50px;
-  background: linear-gradient(to right, #ab4a4a, #3b2bba);
+  background: linear-gradient(to left, #ba6b6b, #3b2bba);
   display: grid;
   place-items: center;
 }
@@ -199,7 +199,8 @@ input:focus {
   margin-top: 5px;
   width: 300px;
   height: 100px;
-  background-color: white;
+ 
+  background: linear-gradient(to left, #ba6b6b, #3b2bba);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow: hidden;
   overflow-y: auto;
@@ -222,11 +223,12 @@ input:focus {
 }
 
 a {
-  text-decoration: none;
+  
+  color: white !important;
 }
 
 a:hover {
-  background-color: lightgrey;
+  background-color: rgb(157, 39, 92);
 }
 
 #clearBtn {
