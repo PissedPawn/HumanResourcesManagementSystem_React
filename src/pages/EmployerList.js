@@ -3,6 +3,7 @@ import { Segment, Table } from 'semantic-ui-react'
 import EmployerService from '../services/employerService'
 import { Link } from 'react-router-dom'
 
+
 export default function EmployerList() {
 
 
@@ -19,8 +20,11 @@ export default function EmployerList() {
 
 
 
+
+
     return (
         <div>
+
             <Segment inverted>
                 <Table celled inverted>
                     <Table.Header>
@@ -53,6 +57,7 @@ export default function EmployerList() {
 
                 </Table>
             </Segment>
+
         </div>
     )
 }

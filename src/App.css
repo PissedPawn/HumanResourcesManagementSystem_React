@@ -175,7 +175,7 @@ input:focus {
 }
 
 .search input {
-  background-color: white;
+  background: linear-gradient(to right, #c79c9c, #5548b8);
   border: 0;
   border-radius: 2px;
   border-top-right-radius: 0px;
@@ -189,7 +189,7 @@ input:focus {
 .searchIcon {
   height: 30px;
   width: 50px;
-  background-color: white;
+  background: linear-gradient(to right, #ab4a4a, #3b2bba);
   display: grid;
   place-items: center;
 }

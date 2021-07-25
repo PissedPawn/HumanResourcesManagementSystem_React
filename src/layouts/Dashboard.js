@@ -20,6 +20,7 @@ import ApplicantRegistration from '../pages/ApplicantRegistration'
 import ApplicantLogin from '../pages/ApplicantLogin'
 import ApplicantDetail from '../pages/ApplicantDetail'
 import newDesign from '../pages/newDesign'
+import MainMenu from '../pages/MainMenu'
 
 
 export default function Dashboard() {
@@ -46,6 +47,7 @@ export default function Dashboard() {
                     <Grid.Column>
 
                         <Container className="main">
+                            <Route exact path="/" component={MainMenu} />
                             <Route exact path="/jobListings" component={JobPostingList} />
                             <Route exact path="/cities" component={CityList} />
                             <Route exact path="/users/:id" component={UserDetail} />
