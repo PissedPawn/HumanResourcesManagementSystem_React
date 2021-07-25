@@ -10,4 +10,8 @@ export default class ApplicantService {
         return axios.post("http://localhost:8080/api/applicants/add", applicant)
     }
 
+    getById(id) {
+        return axios.get("http://localhost:8080/api/applicants/getbyId?id=" + id)
+    }
+
 }

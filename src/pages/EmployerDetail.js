@@ -20,7 +20,7 @@ export default function EmployerDetail() {
 
 
 
-    console.log(employer)
+   
 
 
     return (
@@ -29,7 +29,7 @@ export default function EmployerDetail() {
 
                 <Card fluid>
                     <Card.Content>
-                        {console.log("card content render")}
+                     
 
                         <Card.Header>{employer.companyName}</Card.Header>
 

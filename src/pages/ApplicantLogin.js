@@ -2,63 +2,63 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import { useFormik } from 'formik'
 import { Button, Grid, GridColumn } from 'semantic-ui-react'
-import EmployerService from '../services/employerService'
+import ApplicantService from '../services/applicantService'
+
 import * as Yup from 'yup'
 
+export default function ApplicantLogin() {
 
-
-export default function EmployerLogin() {
-
-    const [employers, setemployers] = useState([])
+    let applicantLoginError = document.getElementById("applicantLoginError")
     const history = useHistory()
 
-
+    const [applicants, setapplicants] = useState([])
 
     useEffect(() => {
-        let employerService = new EmployerService()
+        let applicantService = new ApplicantService()
 
-        employerService.getEmployers().then(result => setemployers(result.data.data))
-    }, [])
+        applicantService.getApplicants().then(result => setapplicants(result.data.data))
+    })
 
-
-    function logIn(employer) {
+    function logIn(applicant) {
         const returnVal = false;
-        employers.map(e => {
-            if (employer.email === e.email && employer.password === e.password) {
-                history.push(`/employers/${e.id}`)
+        applicants.map(e => {
+            if (applicant.email === e.email && applicant.password === e.password) {
+                history.push(`/applicants/${e.id}`)
                 returnVal = true;
             }
         })
 
         return returnVal;
     }
+    const emails = applicants.map(e => e.email)
 
-    const emails = employers.map(e => e.email)
-    let errorDiv = document.getElementById("employerLoginError")
-
-    const valid = employer => {
-        if (!emails.includes(employer.email)) {
+    const valid = applicant => {
+        if (!emails.includes(applicant.email)) {
 
 
-            errorDiv.innerHTML = "Email is not registered"
+            applicantLoginError.innerHTML = "Email is not registered"
         }
 
         else {
-            employers.map(e => {
-                if (employer.email === e.email && employer.password !== e.password) {
+            applicants.map(e => {
+                if (applicant.email === e.email && applicant.password !== e.password) {
 
 
 
-                    errorDiv.innerHTML = "Password is incorrect"
+                    applicantLoginError.innerHTML = "Password is incorrect"
                 }
             })
         }
     }
 
+
+
+
+
+
     const formik = useFormik({
 
         initialValues: {
-
             email: '',
             password: ''
         },
@@ -71,22 +71,19 @@ export default function EmployerLogin() {
 
         onSubmit: values => {
 
-            let employer =
+            let applicant =
             {
                 email: values.email,
-                password: values.password,
+                password: values.password
             }
 
-            const returnVal = logIn(employer)
+            let returnVal = logIn(applicant)
 
             if (!returnVal)
-                valid(employer)
+            valid(applicant)
 
         }
-
-
     })
-
 
 
     return (
@@ -133,7 +130,7 @@ export default function EmployerLogin() {
 
 
                         <Button type="submit" className="button">Log In</Button>
-                        <div id="employerLoginError"></div>
+                        <div id="applicantLoginError"></div>
                     </form>
 
 
@@ -143,7 +140,6 @@ export default function EmployerLogin() {
 
 
             </Grid>
-
         </div>
     )
 }

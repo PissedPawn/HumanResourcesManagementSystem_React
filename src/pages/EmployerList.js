@@ -23,7 +23,6 @@ export default function EmployerList() {
         <div>
             <Table celled>
                 <Table.Header>
-                    {console.log("inside render ")}
                     <Table.Row>
                         <Table.HeaderCell>Company</Table.HeaderCell>
                         <Table.HeaderCell>Website</Table.HeaderCell>

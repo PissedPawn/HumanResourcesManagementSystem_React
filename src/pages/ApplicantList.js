@@ -12,7 +12,7 @@ export default function ApplicantList() {
     let applicantService = new ApplicantService()
 
     applicantService.getApplicants().then(result => setapplicants(result.data.data))
-  })
+  }, [])
 
 
 

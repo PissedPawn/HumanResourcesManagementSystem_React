@@ -17,6 +17,8 @@ import Registration from '../pages/Registration'
 import EmployerLogin from '../pages/EmployerLogin'
 import ApplicantList from '../pages/ApplicantList'
 import ApplicantRegistration from '../pages/ApplicantRegistration'
+import ApplicantLogin from '../pages/ApplicantLogin'
+import ApplicantDetail from '../pages/ApplicantDetail'
 
 
 export default function Dashboard() {
@@ -26,7 +28,7 @@ export default function Dashboard() {
             <Grid>
 
                 <Grid.Row>
-                     {/* <Grid.Column width={4}>
+                    {/* <Grid.Column width={4}>
 
                         <Container className="main">
                             <Route exact path="/" component={JobPostings} />
@@ -48,6 +50,7 @@ export default function Dashboard() {
                             <Route exact path="/cities" component={CityList} />
                             <Route exact path="/users/:id" component={UserDetail} />
                             <Route exact path="/employers/:id" component={EmployerDetail} />
+                            <Route exact path="/applicants/:id" component={ApplicantDetail} />
                             <Route exact path="/employers" component={EmployerList} />
                             <Route exact path="/employerRegistration" component={EmployerRegistration} />
                             <Route exact path="/employerLogIn" component={EmployerLogin} />
@@ -57,6 +60,7 @@ export default function Dashboard() {
                             <Route exact path="/Registration/" component={Registration} />
                             <Route exact path="/applicants/" component={ApplicantList} />
                             <Route exact path="/applicantRegistration/" component={ApplicantRegistration} />
+                            <Route exact path="/applicantLogIn/" component={ApplicantLogin} />
                         </Container>
                     </Grid.Column>
 
