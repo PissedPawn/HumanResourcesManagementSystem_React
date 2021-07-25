@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Table } from 'semantic-ui-react'
+import { Table,Segment } from 'semantic-ui-react'
 import ApplicantService from '../services/applicantService'
 
 export default function ApplicantList() {
@@ -18,33 +18,35 @@ export default function ApplicantList() {
 
   return (
     <div>
-      <Table celled>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>First Name</Table.HeaderCell>
-            <Table.HeaderCell>Last Name</Table.HeaderCell>
-            <Table.HeaderCell>Email</Table.HeaderCell>
-            <Table.HeaderCell>BirthYear</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
+      <Segment inverted>
+        <Table celled inverted>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>First Name</Table.HeaderCell>
+              <Table.HeaderCell>Last Name</Table.HeaderCell>
+              <Table.HeaderCell>Email</Table.HeaderCell>
+              <Table.HeaderCell>BirthYear</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
 
-        <Table.Body>
+          <Table.Body>
 
-          {
-            applicants.map(applicant => (
-              <Table.Row key={applicant.id}>
-                <Table.Cell>{applicant.firstName}</Table.Cell>
-                <Table.Cell>{applicant.lastName}</Table.Cell>
-                <Table.Cell>{applicant.email}</Table.Cell>
-                <Table.Cell>{applicant.birthYear}</Table.Cell>
+            {
+              applicants.map(applicant => (
+                <Table.Row key={applicant.id}>
+                  <Table.Cell>{applicant.firstName}</Table.Cell>
+                  <Table.Cell>{applicant.lastName}</Table.Cell>
+                  <Table.Cell>{applicant.email}</Table.Cell>
+                  <Table.Cell>{applicant.birthYear}</Table.Cell>
 
-              </Table.Row>
-            ))
+                </Table.Row>
+              ))
 
-          }
+            }
 
-        </Table.Body>
-      </Table>
+          </Table.Body>
+        </Table>
+      </Segment>
     </div>
   )
 }

@@ -22,7 +22,7 @@ export default function JobPostingList() {
 
 
         <div>
-            <Table celled>
+            <Table inverted celled className="table">
                 <Table.Header>
                     <Table.Row>
                         <Table.HeaderCell>Position</Table.HeaderCell>

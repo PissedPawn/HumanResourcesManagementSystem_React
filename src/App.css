@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .ui.main.container {
@@ -9,15 +10,52 @@
 body {
   display: flex;
   justify-content: center;
-  color: white;
-  background: #43cea2 !important;
+  color: white !important;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #43cea2, #185a9d);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #43cea2, #185a9d);
+  background: linear-gradient(to right, #4c0d25, #270f3e)!important;
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+
+.segment.ui.inverted.segment, .segment.ui.primary.inverted.segment {
+  background: linear-gradient(to left, #a7164e, #491b75);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  color: rgba(220, 181, 56, 0.9);
+}
+
+.table.ui.inverted.table, .table.ui.primary.inverted.table {
+  background: linear-gradient(to left, #a7164e, #491b75);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  color: rgba(220, 181, 56, 0.9);
+}
+
+.card.ui.card>.content.content {
+  background: linear-gradient(to left, #a7164e, #491b75);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  color: white;
+}
+
+.card.ui.card>.content.content>.header.header {
+  color: white;
+}
+
+.card.ui.card>.content.content>.description.description {
+  color: white;
+}
+
+.card.ui.card>.content.content>.meta.meta {
+  color: white;
+}
+
+.card.ui.card>.extra.content.extra {
+  background: linear-gradient(to right, #ff0000, #00ff15);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  color: white;
 }
 
 .fullRow {
@@ -81,14 +119,18 @@ h1 {
   margin-bottom: 20px;
 }
 
-.button {
-  height: 46px !important;
-  margin-top: 14px !important;
-  border-radius: 8px !important;
-  border: 1px solid rgb(8, 68, 6) !important;
-  box-shadow: 1px 2px 3px #252525aa !important;
-  font-size: 15px !important;
-  text-decoration-color: black !important;
+button.ui.button {
+  height: 46px;
+  background: linear-gradient(to right, #d55151, #11075a);
+  width: 200px;
+  margin: auto;
+  margin-top: 14px;
+  border-radius: 8px;
+  border: 1px solid rgb(8, 68, 6);
+  box-shadow: 1px 2px 3px #ca6d6daa;
+  font-size: 15px;
+  text-decoration-color: rgb(255, 255, 255);
+  color: white;
 }
 
 .error {
@@ -127,10 +169,11 @@ input:focus {
 .searchIcon svg {
   font-size: 35px;
 }
-.search
-{
+
+.search {
   width: 900px;
 }
+
 .search input {
   background-color: white;
   border: 0;
@@ -152,9 +195,8 @@ input:focus {
 }
 
 .dataResult {
-margin: 0 auto;
+  margin: 0 auto;
   margin-top: 5px;
-
   width: 300px;
   height: 100px;
   background-color: white;

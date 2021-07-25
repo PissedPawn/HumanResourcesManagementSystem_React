@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Grid, Menu, Segment, Button, Card, Image } from 'semantic-ui-react'
+import { Grid, Menu, Segment, Button, Card, Icon } from 'semantic-ui-react'
 import { useHistory } from 'react-router'
 export default function Registration() {
 
@@ -46,93 +46,107 @@ export default function Registration() {
 
 
     return (
-        <Grid>
-            <Grid.Column width={4}>
-                <Menu fluid vertical tabular>
-                    <Menu.Item
-                        name='EMPLOYER'
-                        active={activeItem === 'EMPLOYER'}
-                        onClick={handleOpenEmployerPage}
+        <Segment inverted>
+            <Grid>
+                <Grid.Column width={4}>
+                    <Menu vertical inverted>
+                        <Menu.Item
+                            color="violet"
+                            name='EMPLOYER'
+                            active={activeItem === 'EMPLOYER'}
+                            onClick={handleOpenEmployerPage}
 
-                    />
-                    <Menu.Item
-                        name='JOB SEEKER'
-                        active={activeItem === 'JOB SEEKER'}
-                        onClick={handleOpenJobSeekerPage}
 
-                    />
-                </Menu>
-            </Grid.Column>
+                        />
+                        <Menu.Item
+                            color="violet"
+                            name='JOB SEEKER'
+                            active={activeItem === 'JOB SEEKER'}
+                            onClick={handleOpenJobSeekerPage}
 
-            <Grid.Column stretched width={12}>
-                {isEmployer ?
-                    <Segment>
-                        <div>
-                            <Card.Group>
-                                <Card fluid>
-                                    <Card.Content>
 
-                                        <Card.Header>Are You a Company?</Card.Header>
-                                        <Card.Meta>In order to add job openings in your company:</Card.Meta>
-                                        <Card.Description>
-                                            <strong>CLICK REGISTER BELOW </strong>
-                                        </Card.Description>
-                                    </Card.Content>
-                                    <Card.Content extra>
-                                        <div className='ui two buttons'>
-                                            <Button basic color='red'
+                        />
+                    </Menu>
+                </Grid.Column>
+
+                <Grid.Column stretched width={12}>
+                    {isEmployer ?
+                        <Segment inverted>
+                            <div>
+
+                                <Card.Group>
+
+                                    <Card fluid>
+                                        <Card.Content>
+
+                                            <Card.Header>Are You Looking For Employees?</Card.Header>
+                                            <Card.Meta>In order to add job openings in your company:</Card.Meta>
+                                            <Card.Description>
+                                                <strong>CLICK REGISTER BELOW </strong>
+
+                                            </Card.Description>
+                                            <Icon name="arrow circle down" />
+                                        </Card.Content>
+                                        <Card.Content>
+
+                                            <Button
                                                 onClick={goEmployerRegistrationForm}
                                             >
                                                 Register
                                             </Button>
 
-                                            <Button basic color='green'
+                                            <Button
                                                 onClick={goEmployerLoginPage}>
                                                 Log In
                                             </Button>
-                                        </div>
-                                    </Card.Content>
-                                </Card>
 
-                            </Card.Group>
-                        </div>
-                    </Segment>
-                    :
-                    <Segment>
-                        <div>
-                            <Card.Group>
-                                <Card fluid>
-                                    <Card.Content>
+                                        </Card.Content>
+                                    </Card>
 
-                                        <Card.Header>Are You Looking For A Job?</Card.Header>
-                                        <Card.Meta>In order to add your CV:</Card.Meta>
-                                        <Card.Description>
-                                            <strong>CLICK REGISTER BELOW</strong>
-                                        </Card.Description>
-                                    </Card.Content>
-                                    <Card.Content extra>
-                                        <div className='ui two buttons'>
-                                            <Button basic color='red'
+                                </Card.Group>
+
+                            </div>
+
+                        </Segment>
+                        :
+                        <Segment inverted>
+                            <div>
+                                <Card.Group>
+                                    <Card fluid>
+                                        <Card.Content>
+
+                                            <Card.Header>Are You Looking For A Job?</Card.Header>
+                                            <Card.Meta>In order to add your CV:</Card.Meta>
+                                            <Card.Description>
+                                                <strong>CLICK REGISTER BELOW</strong>
+                                            </Card.Description>
+                                            <Icon name="arrow circle down" />
+                                        </Card.Content>
+                                        <Card.Content>
+
+                                            <Button
                                                 onClick={goApplicantRegistrationForm}>
+
 
                                                 Register
                                             </Button>
 
-                                            <Button basic color='green'
+                                            <Button
                                                 onClick={goApplicantLoginPage}>
                                                 Log In
                                             </Button>
-                                        </div>
-                                    </Card.Content>
-                                </Card>
 
-                            </Card.Group>
-                        </div>
-                    </Segment>
-                }
+                                        </Card.Content>
+                                    </Card>
 
-            </Grid.Column>
-        </Grid>
+                                </Card.Group>
+                            </div>
+                        </Segment>
+                    }
+
+                </Grid.Column>
+            </Grid>
+        </Segment>
     )
 
 }

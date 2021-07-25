@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useFormik } from 'formik'
-import { Button, Grid, GridColumn, Dropdown } from 'semantic-ui-react'
+import { Button, Grid, GridColumn, Dropdown, Segment } from 'semantic-ui-react'
 import EmployerService from '../services/employerService'
 import CityService from '../services/cityService'
 
@@ -95,100 +95,102 @@ export default function EmployerRegistration() {
 
     return (
         <div>
-            <h1>Register As Employer </h1>
-            <Grid textAlign='center'>
-                <GridColumn>
-                    <form onSubmit={formik.handleSubmit}>
+            <h1 >Register As Employer </h1>
+            <Segment inverted>
+                <Grid textAlign='center'>
+                    <GridColumn>
+                        <form onSubmit={formik.handleSubmit}>
 
-                        <label>Company Name</label>
+                            <label>Company Name</label>
 
-                        <input
-                            id="companyName"
-                            name="companyName"
+                            <input
+                                id="companyName"
+                                name="companyName"
 
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.companyName} />
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.companyName} />
 
-                        <label>Email</label>
+                            <label>Email</label>
 
-                        <input
-                            id="email"
-                            name="email"
+                            <input
+                                id="email"
+                                name="email"
 
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.email} />
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.email} />
 
-                        <label>Website</label>
+                            <label>Website</label>
 
-                        <input
-                            id="website"
-                            name="website"
+                            <input
+                                id="website"
+                                name="website"
 
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.website} />
-
-
-                        <label>Phone Number</label>
-
-                        <input
-                            id="phoneNumber"
-                            name="phoneNumber"
-
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.phoneNumber} />
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.website} />
 
 
-                        <label>Password</label>
+                            <label>Phone Number</label>
 
-                        <input
-                            id="password"
-                            name="password"
+                            <input
+                                id="phoneNumber"
+                                name="phoneNumber"
 
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.password} />
-
-
-                        <label>Password Repeat</label>
-
-                        <input
-                            id="passwordRepeat"
-                            name="passwordRepeat"
-
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.passwordRepeat} />
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.phoneNumber} />
 
 
-                        <label>City</label>
+                            <label>Password</label>
 
-                        <Dropdown className='formDropdown'
+                            <input
+                                id="password"
+                                name="password"
 
-                            id="city"
-                            name="id"
-                            placeholder='Select City'
-
-                            selection
-                            options={cityOptions}
-                            onChange={getCity}
-                        />
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.password} />
 
 
+                            <label>Password Repeat</label>
+
+                            <input
+                                id="passwordRepeat"
+                                name="passwordRepeat"
+
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.passwordRepeat} />
+
+
+                            <label>City</label>
+
+                            <Dropdown className='formDropdown'
+
+                                id="city"
+                                name="id"
+                                placeholder='Select City'
+
+                                selection
+                                options={cityOptions}
+                                onChange={getCity}
+                            />
 
 
 
-                        <Button type="submit" className="button">Register</Button>
-                        <div id="employerRegisterError"></div>
-
-                    </form>
-                </GridColumn>
 
 
-            </Grid>
+                            <Button type="submit"  >Register</Button>
+                            <div id="employerRegisterError"></div>
+
+                        </form>
+                    </GridColumn>
+
+
+                </Grid>
+            </Segment>
 
         </div>
     )

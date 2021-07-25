@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useFormik } from 'formik'
-import { Button, Grid, GridColumn, Dropdown } from 'semantic-ui-react'
+import { Button, Grid, GridColumn, Segment} from 'semantic-ui-react'
 import ApplicantService from '../services/applicantService'
 
 export default function ApplicantRegistration() {
@@ -47,6 +47,7 @@ export default function ApplicantRegistration() {
     return (
         <div>
             <h1>Register as A Job Searcher </h1>
+            <Segment inverted>
             <Grid textAlign='center'>
                 <GridColumn>
                     <form onSubmit={formik.handleSubmit}>
@@ -133,6 +134,7 @@ export default function ApplicantRegistration() {
 
 
             </Grid>
+          </Segment>
         </div>
     )
 }

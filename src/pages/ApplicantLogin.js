@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import { useFormik } from 'formik'
-import { Button, Grid, GridColumn } from 'semantic-ui-react'
+import { Button, Grid, GridColumn, Segment } from 'semantic-ui-react'
 import ApplicantService from '../services/applicantService'
 
 import * as Yup from 'yup'
@@ -80,7 +80,7 @@ export default function ApplicantLogin() {
             let returnVal = logIn(applicant)
 
             if (!returnVal)
-            valid(applicant)
+                valid(applicant)
 
         }
     })
@@ -89,57 +89,59 @@ export default function ApplicantLogin() {
     return (
         <div>
             <h1>Log In To Your Profile </h1>
-            <Grid textAlign='center'>
-                <GridColumn>
-                    <form onSubmit={formik.handleSubmit}>
+            <Segment inverted>
+                <Grid textAlign='center'>
+                    <GridColumn>
+                        <form onSubmit={formik.handleSubmit}>
 
 
-                        <label>Email</label>
+                            <label>Email</label>
 
-                        <input
-                            id="email"
-                            name="email"
+                            <input
+                                id="email"
+                                name="email"
 
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.email} />
-                        {formik.touched.email && formik.errors.email ? (
-                            <div>{formik.errors.email}</div>
-                        ) : null}
-
-
-
-
-
-
-                        <label>Password</label>
-
-                        <input
-                            id="password"
-                            name="password"
-                            type="password"
-
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.password} />
-                        {formik.touched.password && formik.errors.password ? (
-                            <div>{formik.errors.password}</div>
-                        ) : null}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.email} />
+                            {formik.touched.email && formik.errors.email ? (
+                                <div>{formik.errors.email}</div>
+                            ) : null}
 
 
 
 
-                        <Button type="submit" className="button">Log In</Button>
-                        <div id="applicantLoginError"></div>
-                    </form>
+
+
+                            <label>Password</label>
+
+                            <input
+                                id="password"
+                                name="password"
+                                type="password"
+
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.password} />
+                            {formik.touched.password && formik.errors.password ? (
+                                <div>{formik.errors.password}</div>
+                            ) : null}
 
 
 
-                </GridColumn>
+
+                            <Button type="submit" className="button">Log In</Button>
+                            <div id="applicantLoginError"></div>
+                        </form>
 
 
 
-            </Grid>
+                    </GridColumn>
+
+
+
+                </Grid>
+            </Segment>
         </div>
     )
 }
