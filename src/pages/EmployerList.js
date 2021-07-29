@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Segment, Table } from 'semantic-ui-react'
 import EmployerService from '../services/employerService'
 import { Link } from 'react-router-dom'
+import './Pages.css'
 
 
 export default function EmployerList() {
@@ -25,7 +26,7 @@ export default function EmployerList() {
     return (
         <div>
 
-            <Segment inverted>
+            <div>
                 <Table celled inverted>
                     <Table.Header>
                         <Table.Row>
@@ -56,7 +57,7 @@ export default function EmployerList() {
 
 
                 </Table>
-            </Segment>
+            </div>
 
         </div>
     )

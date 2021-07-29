@@ -20,12 +20,12 @@ export default function EmployerLogin() {
         employerService.getEmployers().then(result => setemployers(result.data.data))
     }, [])
 
-
+    let errorDiv = document.getElementById("employerLoginError")
     function logIn(employer) {
         const returnVal = false;
         employers.map(e => {
             if (employer.email === e.email && employer.password === e.password) {
-                history.push(`/employers/${e.id}`)
+                errorDiv.innerHTML = ""
                 returnVal = true;
             }
         })
@@ -34,7 +34,7 @@ export default function EmployerLogin() {
     }
 
     const emails = employers.map(e => e.email)
-    let errorDiv = document.getElementById("employerLoginError")
+   
 
     const valid = employer => {
         if (!emails.includes(employer.email)) {

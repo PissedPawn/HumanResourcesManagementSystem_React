@@ -55,16 +55,12 @@ export default function Registration() {
                             name='EMPLOYER'
                             active={activeItem === 'EMPLOYER'}
                             onClick={handleOpenEmployerPage}
-
-
                         />
                         <Menu.Item
                             color="violet"
                             name='JOB SEEKER'
                             active={activeItem === 'JOB SEEKER'}
                             onClick={handleOpenJobSeekerPage}
-
-
                         />
                     </Menu>
                 </Grid.Column>
@@ -90,8 +86,7 @@ export default function Registration() {
                                         <Card.Content>
 
                                             <Button
-                                                onClick={goEmployerRegistrationForm}
-                                            >
+                                                onClick={goEmployerRegistrationForm}>
                                                 Register
                                             </Button>
 

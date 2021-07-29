@@ -1,8 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Menu, Segment, Icon } from 'semantic-ui-react'
 import SignedOut from './SignedOut'
 import SignedIn from './SignedIn'
-import { useHistory } from 'react-router-dom'
+import { Button } from './Button'
+import { useHistory, Link } from 'react-router-dom'
+import { FaBars, FaTimes } from 'react-icons/fa'
+import { GiGamepad } from 'react-icons/gi'
+
+import './Navi.css'
 
 import PostJobAndAddCV from './PostJobAndAddCV'
 
@@ -15,20 +20,24 @@ export default function Navi() {
     function handleSignOut() {
         setisAuthenticated(false)
         history.push("/")
+        closeMobileMenu()
     }
 
     function goMainMenu() {
         history.push("/")
         setisAuthenticated(false)
+        closeMobileMenu()
     }
 
 
     function goSearchEmployersPage() {
         history.push("/searchEmployers/")
+        closeMobileMenu()
     }
 
     function goJobSeekersList() {
         history.push("/applicants/")
+        closeMobileMenu()
     }
 
     function handleSignIn() {
@@ -41,11 +50,13 @@ export default function Navi() {
 
     function goEmployersList() {
         history.push("/employers/")
+        closeMobileMenu()
     }
 
     function goRegistrationPage() {
         history.push("/Registration/")
         setisAuthenticated(true)
+        closeMobileMenu()
     }
 
     function goEmployerLoginPage() {
@@ -54,72 +65,128 @@ export default function Navi() {
 
     function goJobPostingsList() {
         history.push("/jobListings")
+        closeMobileMenu()
     }
 
+    const [click, setclick] = useState(false)
+    const [button, setbutton] = useState(true)
 
+    const handleClick = () => setclick(!click)
+    const closeMobileMenu = () => setclick(false)
+
+    const showButton = () => {
+        if (window.innerWidth <= 960)
+            setbutton(false)
+        else
+            setbutton(true)
+    }
+
+    useEffect(() => {
+        showButton();
+    }, [])
+
+    window.addEventListener('resize', showButton)
 
     return (
-        <div>
-            <Segment inverted>
+        <>
+            <div className='navbar'>
+                <div className="navbar-contain contain">
 
-                <Menu icon="labeled" inverted pointing secondary>
-                    <Menu.Item onClick={goMainMenu} >
-                        <Icon name='world' color="red" />
-                        <p style={{ color: 'red' }}>
-                            You Are Hired
-                        </p>
-                    </Menu.Item>
+                    <div className="navbar-logo" onClick={goMainMenu}>
+                        <GiGamepad className='navbar-icon'></GiGamepad>
+                        You are Hired
+                    </div>
 
+                    <div className="menu-icon" onClick={handleClick}>
+                        {click ? <FaTimes /> : <FaBars />}
 
-                    <Menu.Item onClick={goSearchEmployersPage}>
-                        <Icon name="search" />
-                        Search Employers
-                    </Menu.Item>
-
-                    <Menu.Item onClick={goEmployersList}>
-                        <Icon name="building" />
-                        Companies
-                    </Menu.Item>
-
-                    <Menu.Item onClick={goJobSeekersList}>
-
-                        <Icon name="pen square" />
-
-                        Applicants
-
-                    </Menu.Item>
-
-                    <Menu.Item onClick={goJobPostingsList}>
-
-                        <Icon name="suitcase" />
-
-                        Job Opportunities
-
-                    </Menu.Item>
-
-                    {isAuthenticated ? null :
-                        <Menu.Item position="right"
-                            onClick={goRegistrationPage}
-
-                        >
-                            <Icon name="question circle outline" />
-                            Why Are You Here
-                        </Menu.Item>
-                    }
+                    </div>
 
 
+                    <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+
+                        <li className="nav-item" >
+
+                            <div onClick={goSearchEmployersPage} className='nav-links'>
+                                <Icon name="search" />
+                                Search Employers
+                            </div>
+
+                        </li>
+
+                        <li className="nav-item">
+                            <div onClick={goEmployersList} className='nav-links'>
+                                <Icon name="building" />
+                                Companies
+                            </div>
+                        </li>
+
+                        <li className="nav-item">
+                            <div onClick={goJobSeekersList} className='nav-links'>
+
+                                <Icon name="pen square" />
+
+                                Applicants
+
+                            </div>
+                        </li>
+
+                        <li className="nav-item">
+                            <div onClick={goJobPostingsList} className='nav-links' >
+
+                                <Icon name="suitcase" />
+
+                                Job Opportunities
+
+                            </div>
+                        </li>
+
+                        <li className='nav-btn'>
+                            {button ?
+                                (<div className='btn-link'>
+                                    <Button buttonStyle='btn-outline'
+                                    onClick={goRegistrationPage}>
+                                        Sign Up
+                                    </Button>
+                                </div>) :
+                                (
+                                    <div className='btn-link'
+                                        onClick={goRegistrationPage}>
+                                        <Button buttonStyle='btn-outline'
+                                            buttonSize='btn--mobile'>
+                                            Sign Up
+                                        </Button>
+                                    </div>
+                                )}
+
+                        </li>
+
+                        {/* <li >
+                            {isAuthenticated ? null :
+                                <Menu.Item
+                                    onClick={goRegistrationPage}
+
+                                >
+                                    <Icon name="question circle outline" />
+                                    Why Are You Here
+                                </Menu.Item>
+                            }
+                        </li> */}
 
 
 
 
 
 
-                    {/* <Menu.Item
+
+
+
+                        {/* <Menu.Item
                     onClick={goEmployerRegistrationForm}
                     name='Employer Registration'
                 /> */}
 
-                    {/* <Menu.Menu position='left' >
+                        {/* <Menu.Menu position='left' >
 
                     {isAuthenticated ?
                         < PostJobAndAddCV />
@@ -135,8 +202,12 @@ export default function Navi() {
                         <SignedOut signIn={handleSignIn} />}
 
                 </Menu.Menu> */}
-                </Menu>
-            </Segment>
-        </div>
+
+
+                    </ul>
+                </div>
+
+            </div>
+        </>
     )
 }
