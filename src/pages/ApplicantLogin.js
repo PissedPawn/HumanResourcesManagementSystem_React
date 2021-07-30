@@ -3,6 +3,8 @@ import { useHistory } from 'react-router'
 import { useFormik } from 'formik'
 import { Button, Grid, GridColumn, Segment } from 'semantic-ui-react'
 import ApplicantService from '../services/applicantService'
+import { useDispatch } from 'react-redux'
+import { login } from '../store/actions/authActions'
 
 import * as Yup from 'yup'
 
@@ -19,13 +21,23 @@ export default function ApplicantLogin() {
         applicantService.getApplicants().then(result => setapplicants(result.data.data))
     })
 
+
+    const dispatch = useDispatch()
+
+    const handleLogin = (condition) =>
+    (
+        dispatch(login(condition))
+    )
+
     function logIn(applicant) {
-        const returnVal = false;
+        let returnVal = false;
         applicants.map(e => {
             if (applicant.email === e.email && applicant.password === e.password) {
                 history.push(`/applicants/${e.id}`)
                 returnVal = true;
+
             }
+            handleLogin(returnVal)
         })
 
         return returnVal;

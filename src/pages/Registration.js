@@ -46,23 +46,27 @@ export default function Registration() {
 
 
     return (
+
         <Segment inverted>
             <Grid>
+
                 <Grid.Column width={4}>
-                    <Menu vertical inverted>
-                        <Menu.Item
-                            color="violet"
-                            name='EMPLOYER'
-                            active={activeItem === 'EMPLOYER'}
-                            onClick={handleOpenEmployerPage}
-                        />
-                        <Menu.Item
-                            color="violet"
-                            name='JOB SEEKER'
-                            active={activeItem === 'JOB SEEKER'}
-                            onClick={handleOpenJobSeekerPage}
-                        />
-                    </Menu>
+                    <div>
+                        <Menu vertical inverted>
+                            <Menu.Item
+                                color="violet"
+                                name='EMPLOYER'
+                                active={activeItem === 'EMPLOYER'}
+                                onClick={handleOpenEmployerPage}
+                            />
+                            <Menu.Item
+                                color="violet"
+                                name='JOB SEEKER'
+                                active={activeItem === 'JOB SEEKER'}
+                                onClick={handleOpenJobSeekerPage}
+                            />
+                        </Menu>
+                    </div>
                 </Grid.Column>
 
                 <Grid.Column stretched width={12}>

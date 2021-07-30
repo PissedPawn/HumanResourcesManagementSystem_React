@@ -6,6 +6,7 @@ import { Button } from './Button'
 import { useHistory, Link } from 'react-router-dom'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { GiGamepad } from 'react-icons/gi'
+import { useSelector } from 'react-redux'
 
 import './Navi.css'
 
@@ -13,7 +14,10 @@ import PostJobAndAddCV from './PostJobAndAddCV'
 
 export default function Navi() {
 
+    const { auth } = useSelector(state => state.auth)
     const [isAuthenticated, setisAuthenticated] = useState(false)
+
+
 
     const history = useHistory()
 
@@ -141,37 +145,37 @@ export default function Navi() {
                             </div>
                         </li>
 
-                        <li className='nav-btn'>
-                            {button ?
-                                (<div className='btn-link'>
-                                    <Button buttonStyle='btn-outline'
-                                    onClick={goRegistrationPage}>
-                                        Sign Up
-                                    </Button>
-                                </div>) :
-                                (
-                                    <div className='btn-link'
-                                        onClick={goRegistrationPage}>
+
+
+
+                        {auth.loggedIn ?
+                            <li>
+                                <SignedIn />
+                            </li>
+
+                            :
+
+                            <li className='nav-btn'>
+                                {button ?
+                                    (<div className='btn-link'>
                                         <Button buttonStyle='btn-outline'
-                                            buttonSize='btn--mobile'>
+                                            onClick={goRegistrationPage}>
                                             Sign Up
                                         </Button>
-                                    </div>
-                                )}
+                                    </div>) :
+                                    (
+                                        <div className='btn-link'
+                                            onClick={goRegistrationPage}>
+                                            <Button buttonStyle='btn-outline'
+                                                buttonSize='btn--mobile'>
+                                                Sign Up
+                                            </Button>
+                                        </div>
+                                    )}
 
-                        </li>
+                            </li>
+                        }
 
-                        {/* <li >
-                            {isAuthenticated ? null :
-                                <Menu.Item
-                                    onClick={goRegistrationPage}
-
-                                >
-                                    <Icon name="question circle outline" />
-                                    Why Are You Here
-                                </Menu.Item>
-                            }
-                        </li> */}
 
 
 

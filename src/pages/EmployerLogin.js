@@ -4,13 +4,22 @@ import { useFormik } from 'formik'
 import { Button, Grid, GridColumn, Segment } from 'semantic-ui-react'
 import EmployerService from '../services/employerService'
 import * as Yup from 'yup'
+import { useDispatch } from 'react-redux'
+import { login } from '../store/actions/authActions'
 
 
 
 export default function EmployerLogin() {
 
     const [employers, setemployers] = useState([])
+
     const history = useHistory()
+    const dispatch = useDispatch()
+
+    const handleLogin = (condition) => {
+        dispatch(login(condition))
+    }
+
 
 
 
@@ -22,19 +31,20 @@ export default function EmployerLogin() {
 
     let errorDiv = document.getElementById("employerLoginError")
     function logIn(employer) {
-        const returnVal = false;
+        let returnVal = false;
         employers.map(e => {
             if (employer.email === e.email && employer.password === e.password) {
                 errorDiv.innerHTML = ""
                 returnVal = true;
             }
+            handleLogin(returnVal)
         })
 
         return returnVal;
     }
 
     const emails = employers.map(e => e.email)
-   
+
 
     const valid = employer => {
         if (!emails.includes(employer.email)) {
@@ -77,10 +87,11 @@ export default function EmployerLogin() {
                 password: values.password,
             }
 
-            const returnVal = logIn(employer)
+            let returnVal = logIn(employer)
 
             if (!returnVal)
                 valid(employer)
+
 
         }
 
