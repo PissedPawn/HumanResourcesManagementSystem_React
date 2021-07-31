@@ -9,7 +9,7 @@ export default function SearchBar({ placeholder, data }) {
 
     const handleFilter = (event) => {
         const keyword = event.target.value
-        const newFilter = data.filter(e => {
+        const newFilter = data.filter(e => {      //
             return e.companyName.toLowerCase().includes(keyword.toLowerCase())
         })
         if (keyword === "")
