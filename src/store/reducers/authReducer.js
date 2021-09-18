@@ -1,32 +1,47 @@
-import { Log_In, Log_Out } from "../actions/authActions";
-import { auth } from "../initialValues/auth";
-import { useState, useEffect } from "react";
+import {
+    Log_In,
+    Log_Out
+} from "../actions/authActions";
+import {
+    auth
+} from "../initialValues/auth";
+import {
+    useState,
+    useEffect
+} from "react";
 
 
 const initialState = {
     auth: auth,
 }
 
-export default function authReducer(state = initialState, { type, payload }) {
-    
+export default function authReducer(state = initialState, {
+    type,
+    payload
+}) {
+
 
     switch (type) {
         case Log_In:
 
             if (payload) {
-               
+
                 return {
                     ...state,
-                    auth: { ...auth, loggedIn: true }
+                    auth: {
+                        ...auth,
+                        loggedIn: true
+                    }
 
                 };
 
-            }
-
-            else {
+            } else {
                 return {
                     ...state,
-                    auth: { ...auth, loggedIn: false }
+                    auth: {
+                        ...auth,
+                        loggedIn: false
+                    }
                 };
             }
 
@@ -39,10 +54,13 @@ export default function authReducer(state = initialState, { type, payload }) {
 
         default:
 
-           
+
             return {
                 ...state,
-                auth: { ...auth, loggedIn: false }
+                auth: {
+                    ...auth,
+                    loggedIn: false
+                }
             };
 
     }

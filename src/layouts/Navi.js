@@ -150,7 +150,7 @@ export default function Navi() {
 
                         {auth.loggedIn ?
                             <li>
-                                <SignedIn />
+                                <SignedIn name="Vuqar" />
                             </li>
 
                             :

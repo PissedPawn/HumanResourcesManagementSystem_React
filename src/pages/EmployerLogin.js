@@ -35,6 +35,7 @@ export default function EmployerLogin() {
         employers.map(e => {
             if (employer.email === e.email && employer.password === e.password) {
                 errorDiv.innerHTML = ""
+                history.push(`/employers/${e.id}`)
                 returnVal = true;
             }
             handleLogin(returnVal)

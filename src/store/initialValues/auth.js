@@ -1,1 +1,1 @@
-export const auth = { loggedIn: false};
+export const auth = { loggedIn: false, user: { id:0, userType: 0 } };

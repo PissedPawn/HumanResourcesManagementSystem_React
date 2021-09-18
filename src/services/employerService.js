@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default class EmployerService {
     getEmployers() {
-        return axios.get("http://localhost:8080/api/employers/getall")
+        return axios.get("https://hrmsbackendjava.herokuapp.com/api/employers/getall")
     }
 
     addEmployer(employer={}) {

@@ -7,7 +7,7 @@ export default function SignedIn(props) {
         <div>
             <Menu.Item>
                 <Image avatar spaced="right"/>
-                <Dropdown pointing="top left" text="Vuqar">
+                <Dropdown pointing="top left" text={props.name}>
                     <Dropdown.Menu>
                         <Dropdown.Item as={NavLink} to="/users/:id" text="My Info" icon="info"></Dropdown.Item>
                         <Dropdown.Item onClick={props.signOut} text="Log Out" icon="sign-out"></Dropdown.Item>
