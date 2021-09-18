@@ -6,10 +6,10 @@ export default class EmployerService {
     }
 
     addEmployer(employer={}) {
-        return axios.post("http://localhost:8080/api/employers/add", employer)
+        return axios.post("https://hrmsbackendjava.herokuapp.com/api/employers/add", employer)
     }
 
     getById(id) {
-        return axios.get("http://localhost:8080/api/employers/getById?id=" + id)
+        return axios.get("https://hrmsbackendjava.herokuapp.com/api/employers/getById?id=" + id)
     }
 }
